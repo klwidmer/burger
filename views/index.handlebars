@@ -1,0 +1,16 @@
+<<h1>This is the index page</h1>
+<div id="eaten" width="50%">
+    <h2>I ate this</h2>
+    {{#each burgers}}
+        {{#if devoured}}
+            <p>{{burger_name}}</p>
+        {{/if}}
+    {{/each}}
+</div>
+<div id="notEaten" width="50%">
+    <h2>I didnt eat this</h2>    
+    {{#each burgers}} {{#unless this.devoured}}
+    <p>{{this.burger_name}}</p>
+    {{/unless}} {{/each}}
+</div>
+<a href="/burgers">Go to Burgers</a>

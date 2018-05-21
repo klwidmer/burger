@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mySQL = require ("MySQL");
-var reload = reload ("reload");
+// var reload = reload ("reload");
 
 var PORT = process.env.PORT || 8080;
 
@@ -34,4 +34,4 @@ app.listen(PORT, function() {
 });
 
 // automatically reloads the browser
-reload(server,app);
+// reload(server,app);
