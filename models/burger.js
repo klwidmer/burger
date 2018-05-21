@@ -1,10 +1,16 @@
 
 
-var connection = require ("../config/orm.js");
+var orm = require ("../config/orm.js");
 
 var burger = {
     all: function(cb){
-    orm.all("burgers",function(res){
-        cb(res);
-    });
-},
+        orm.all("burgers", function(res){
+            cb(res);
+        });
+    }
+    // update: function(cb){
+    //     orm.update()
+    // }
+}
+
+module.exports = burger;

@@ -1,10 +1,9 @@
 
 var connection = require("../config/connection.js");
 
-
-var selectAll = {
-    all: function (tableinput, cb){
-        var queryString = "SELECT * FROM " + tableinput + ";"
+var orm = {
+    all: function (tableInput, cb){
+        var queryString = "SELECT * FROM " + tableInput + ";"
         connection.query(queryString, function(err,result){
             if (err){
                 throw err;  
@@ -12,32 +11,24 @@ var selectAll = {
             cb(result);
         });
     },
-}
-
-var insertOne = {
-    insertOne: function (tableinput,cb){
+    insertOne: function (tableInput, cb) {
         var queryString = "INSERT INTO" + tableinput + ";"
-        connection.query(queryString, function (err,result){
-            if (err){
-            throw err;
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
             }
-            cb(resutl);
+            cb(result);
         });
     },
-}
-var updateOne = {
-    updateOne: function (tableinput,cb){
+    updateOne: function (tableInput, cb) {
         var queryString = "UPDATE" + tableinput + ";"
-        connection.query(queryString, function (err,result){
-            if (err){
-            throw err;
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
             }
-            cb(resutl);
+            cb(result);
         });
     }
 }
 
-
-
-
-module.exports = 
+module.exports = orm 

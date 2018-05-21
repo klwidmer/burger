@@ -1,16 +1,20 @@
-<<h1>This is the index page</h1>
+<h1>This is the index page</h1>
 <div id="eaten" width="50%">
     <h2>I ate this</h2>
-    {{#each burgers}}
+    {{#each burger_data}}
         {{#if devoured}}
-            <p>{{burger_name}}</p>
+            <button class="burgerbtn" data-id="{{id}}" data-state="{{devoured}}">{{burger_name}}</button>
         {{/if}}
     {{/each}}
 </div>
 <div id="notEaten" width="50%">
     <h2>I didnt eat this</h2>    
-    {{#each burgers}} {{#unless this.devoured}}
-    <p>{{this.burger_name}}</p>
+    {{#each burger_data}} {{#unless this.devoured}}
+        <button class="burgerbtn" data-id="{{id}}" data-state="{{devoured}}">{{burger_name}}</button>
     {{/unless}} {{/each}}
 </div>
 <a href="/burgers">Go to Burgers</a>
+<script>
+    
+    //put request into bugers controller 
+</script>

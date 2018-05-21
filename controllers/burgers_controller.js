@@ -1,27 +1,22 @@
 const express = require("express");
 const reload = require("reload");
 const router = express.Router();
+const burger = require("../models/burger")
 
 router.get("/", function(req, res) {
-      let burgers = [
-        {
-          id: 1,
-          burger_name: "Bacon Cheese",
-          devoured: false
-        }, {
-          id: 2,
-          burger_name: "Classic",
-          devoured: false
-        }, {
-          id: 3,
-          burger_name: "Western",
-          devoured: true
-        }
-      ];
-    res.render("index", burgers);
+      burger.all(function(burger_data) {
+        res.render("index", {burger_data: burger_data});
+      })
 });
+
 router.get("/burgers", function (req, res) {
   res.render("burgers", {burger: "swiss mushroom"});
+});
+
+
+
+router.put("/burgers", function (req, res) {
+  //connect to burger model 
 });
 
 
