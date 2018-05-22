@@ -7,10 +7,16 @@ var burger = {
         orm.all("burgers", function(res){
             cb(res);
         });
+    },
+    insert: function(data, cb){
+        orm.insert("burgers", data, function(res){
+        cb(res);
+        })
+    },
+    update: function(cb){
+        orm.update("burgers", function(res){
+        cb(res);
+        });
     }
-    // update: function(cb){
-    //     orm.update()
-    // }
 }
-
 module.exports = burger;

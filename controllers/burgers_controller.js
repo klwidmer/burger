@@ -8,16 +8,15 @@ router.get("/", function(req, res) {
         res.render("index", {burger_data: burger_data});
       })
 });
-
-router.get("/burgers", function (req, res) {
-  res.render("burgers", {burger: "swiss mushroom"});
+router.post("/burgers", function (req, res) {
+      console.log(req.body)
+      burger.insert(req.body, function(burger_data){
+            res.render("index", {burger_data: burger_data});
+      })
 });
-
-
-
-router.put("/burgers", function (req, res) {
-  //connect to burger model 
-});
+// router.put("/burgers", function (req, res) {
+//   res.render("index", {burger_data: burger_data});
+// });
 
 
 module.exports = router;
