@@ -21,8 +21,8 @@ var orm = {
             cb(result);
         });
     },
-    update: function (tableInput, cb) {
-        var queryString = 'UPDATE' + tableInput + ';'
+    update: function (tableInput, burgerID, burgerState, cb) {
+        var queryString = 'UPDATE ' + tableInput + ' SET devoured=' + burgerState + ' WHERE id=' + burgerID + ';'
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;

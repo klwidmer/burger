@@ -14,7 +14,21 @@
     {{/unless}} {{/each}}
 </div>
 <a href="/burgers">Go to Burgers</a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     
     //put request into bugers controller 
+    $(document).on('click', '.burgerbtn', function(){
+        var burgerID = $(this).attr('data-id');
+        var devouredState = $(this).attr('data-state');
+        $.ajax({
+            method: 'PUT',
+            url: '/eatburger/' + burgerID,
+            data: {st: devouredState}
+        }).then(function(burgerInfo){
+            location.reload();
+        })
+    })
+
+
 </script>
